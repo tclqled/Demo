@@ -1,0 +1,516 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Data Analysis</title>
+	<!-- bootstrap -->
+	 <link rel="stylesheet" href="css/bootstrap.min.css"> 
+	 <script src="js/jquery.min.js"></script>
+	 <script src="js/bootstrap.min.js"></script>
+	<!-- bootstrap-table -->
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-export.js"></script>
+	<script src="js/tableExport.js"></script>
+	<!-- Echarts -->
+	<script src="js/echarts.min.js"></script>
+
+
+
+	<style>
+	body {
+		font-family: "Times New Roman";
+		margin: 0 auto;
+		width: 95%;
+	}
+	#mytable {
+		 table-layout: auto; 
+		word-wrap: break-word;
+	}
+	.navbar {
+		 	font-size: 2rem;
+		 	
+		}
+	.th-hil {width: 15rem;}
+	.th-htl {width: 15rem;}
+	.th-eml {width: 15rem;}
+	.th-etl {width: 15rem;}
+
+	</style>
+
+	<script type="text/javascript">
+		function giveFocus() {
+			document.insert.name.focus()
+		}
+		function submitForm() {
+			document.insert.submit()
+		}
+		function resetForm() {
+			document.insert.reset()
+			document.insert.name.focus()
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse ">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html" style="font-size: 2.5rem;">TCL QLED</a>
+			</div>
+			<ul class="nav navbar-nav ">
+
+				<li><a href="#">DataAnalysis</a></li>
+				<li><a href="dataAnalysis I.html">DataAnalysis I</a></li>
+				<li><a href="dataAnalysis II.html">DataAnalysis II</a></li>
+				<li><a href="dataAnalysis III.html">DataAnalysis III</a></li>
+				<li><a href="#" >DataVisualize</a></li> 
+				<!-- <li><a href="userM.html">User Manager</a></li>  -->
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+						admin</a></li>
+				<li><a href="index.jsp"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- navbar end -->
+
+	<div class="row" style="margin-bottom: 2em">
+		<div class="col-md-1">
+			
+			<select class="form-control">
+				<option value="">Device No.</option>
+				<option value="all">QDs No.</option>
+				<option value="selected">Export Selected</option>
+			</select>
+		</div>
+		
+		<div class="col-md-1">
+			<input class="form-control" type="text" name="" placeholder="From">
+		</div>
+
+		<div class="col-md-1">
+			<input class="form-control" type="text" name="" placeholder="To">
+		</div>
+
+		<div class="col-md-1">
+			<button class="btn btn-success">confirm</button>
+		</div>
+	</div>
+	
+	<!-- one -->
+	<div class="row">
+		<div id="one" class="col-md-4" style="height: 400px"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('one'));
+			var option = {
+				    title: {
+				        text: ''
+				    },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				    legend: {
+				        data:['ZnO-1','ZnO-2','ZnO-3','ZnO-4','ZnO-5']
+				    },
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['400','450','500','550','600','650','700']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'ZnO-1',
+				            type:'line',
+				            stack: '总量',
+				            data:[120, 132, 101, 134, 90, 230, 210]
+				        },
+				        {
+				            name:'ZnO-2',
+				            type:'line',
+				            stack: '总量',
+				            data:[220, 182, 191, 234, 290, 330, 310]
+				        },
+				        {
+				            name:'ZnO-3',
+				            type:'line',
+				            stack: '总量',
+				            data:[150, 232, 201, 154, 190, 330, 410]
+				        },
+				        {
+				            name:'ZnO-4',
+				            type:'line',
+				            stack: '总量',
+				            data:[320, 332, 301, 334, 390, 330, 320]
+				        },
+				        {
+				            name:'ZnO-5',
+				            type:'line',
+				            stack: '总量',
+				            data:[820, 932, 901, 934, 1290, 1330, 1320]
+				        }
+				    ]
+				};
+        myChart.setOption(option);
+		</script>
+
+		<!-- two -->
+		<div id="two" class="col-md-4" style="height: 400px"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('two'));
+			var option = {
+				    title: {
+				        text: ''
+				    },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				   
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['1','2','3','4','5','6','7']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'ZnO-1',
+				            type:'line',
+				            stack: '总量',
+				            data:[120, 132, 101, 134, 90, 230, 210]
+				        },
+				        {
+				            name:'ZnO-2',
+				            type:'line',
+				            stack: '总量',
+				            data:[220, 182, 191, 234, 290, 330, 310]
+				        },
+				        {
+				            name:'ZnO-3',
+				            type:'line',
+				            stack: '总量',
+				            data:[150, 232, 201, 154, 190, 330, 410]
+				        },
+				        {
+				            name:'ZnO-4',
+				            type:'line',
+				            stack: '总量',
+				            data:[320, 332, 301, 334, 390, 330, 320]
+				        },
+				        {
+				            name:'ZnO-5',
+				            type:'line',
+				            stack: '总量',
+				            data:[820, 932, 901, 934, 1290, 1330, 1320]
+				        }
+				    ]
+				};
+        myChart.setOption(option);
+		</script>
+
+		<!-- three -->
+		<div id="three" class="col-md-4" style="height: 400px"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('three'));
+			var option = {
+				    title: {
+				        text: ''
+				    },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				    
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['1','2','3','4','5','6','7']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'ZnO-1',
+				            type:'line',
+				            stack: '总量',
+				            data:[120, 132, 101, 134, 90, 230, 210]
+				        },
+				        {
+				            name:'ZnO-2',
+				            type:'line',
+				            stack: '总量',
+				            data:[220, 182, 191, 234, 290, 330, 310]
+				        },
+				        {
+				            name:'ZnO-3',
+				            type:'line',
+				            stack: '总量',
+				            data:[150, 232, 201, 154, 190, 330, 410]
+				        },
+				        {
+				            name:'ZnO-4',
+				            type:'line',
+				            stack: '总量',
+				            data:[320, 332, 301, 334, 390, 330, 320]
+				        },
+				        {
+				            name:'ZnO-5',
+				            type:'line',
+				            stack: '总量',
+				            data:[820, 932, 901, 934, 1290, 1330, 1320]
+				        }
+				    ]
+				};
+        myChart.setOption(option);
+		</script>
+
+		<!-- four -->
+		<div id="four" class="col-md-4" style="height: 400px"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('four'));
+			var option = {
+				    title: {
+				        text: ''
+				    },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				   
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['1','2','3','4','5','6','7']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'ZnO-1',
+				            type:'line',
+				            stack: '总量',
+				            data:[120, 132, 101, 134, 90, 230, 210]
+				        },
+				        {
+				            name:'ZnO-2',
+				            type:'line',
+				            stack: '总量',
+				            data:[220, 182, 191, 234, 290, 330, 310]
+				        },
+				        {
+				            name:'ZnO-3',
+				            type:'line',
+				            stack: '总量',
+				            data:[150, 232, 201, 154, 190, 330, 410]
+				        },
+				        {
+				            name:'ZnO-4',
+				            type:'line',
+				            stack: '总量',
+				            data:[320, 332, 301, 334, 390, 330, 320]
+				        },
+				        {
+				            name:'ZnO-5',
+				            type:'line',
+				            stack: '总量',
+				            data:[820, 932, 901, 934, 1290, 1330, 1320]
+				        }
+				    ]
+				};
+        myChart.setOption(option);
+		</script>
+
+		<!-- five -->
+		<div id="five" class="col-md-4" style="height: 400px"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('five'));
+			var option = {
+				    title: {
+				        text: ''
+				    },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				   
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['1','2','3','4','5','6','7']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'ZnO-1',
+				            type:'line',
+				            stack: '总量',
+				            data:[120, 132, 101, 134, 90, 230, 210]
+				        },
+				        {
+				            name:'ZnO-2',
+				            type:'line',
+				            stack: '总量',
+				            data:[220, 182, 191, 234, 290, 330, 310]
+				        },
+				        {
+				            name:'ZnO-3',
+				            type:'line',
+				            stack: '总量',
+				            data:[150, 232, 201, 154, 190, 330, 410]
+				        },
+				        {
+				            name:'ZnO-4',
+				            type:'line',
+				            stack: '总量',
+				            data:[320, 332, 301, 334, 390, 330, 320]
+				        },
+				        {
+				            name:'ZnO-5',
+				            type:'line',
+				            stack: '总量',
+				            data:[820, 932, 901, 934, 1290, 1330, 1320]
+				        }
+				    ]
+				};
+        myChart.setOption(option);
+		</script>
+
+		<!-- six -->
+		<div id="six" class="col-md-4" style="height: 400px"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('six'));
+			var option = {
+				    title: {
+				        text: ''
+				    },
+				    tooltip: {
+				        trigger: 'axis'
+				    },
+				   
+				    grid: {
+				        left: '3%',
+				        right: '4%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+				    toolbox: {
+				        feature: {
+				            saveAsImage: {}
+				        }
+				    },
+				    xAxis: {
+				        type: 'category',
+				        boundaryGap: false,
+				        data: ['1','2','3','4','5','6','7']
+				    },
+				    yAxis: {
+				        type: 'value'
+				    },
+				    series: [
+				        {
+				            name:'ZnO-1',
+				            type:'line',
+				            stack: '总量',
+				            data:[120, 132, 101, 134, 90, 230, 210]
+				        },
+				        {
+				            name:'ZnO-2',
+				            type:'line',
+				            stack: '总量',
+				            data:[220, 182, 191, 234, 290, 330, 310]
+				        },
+				        {
+				            name:'ZnO-3',
+				            type:'line',
+				            stack: '总量',
+				            data:[150, 232, 201, 154, 190, 330, 410]
+				        },
+				        {
+				            name:'ZnO-4',
+				            type:'line',
+				            stack: '总量',
+				            data:[320, 332, 301, 334, 390, 330, 320]
+				        },
+				        {
+				            name:'ZnO-5',
+				            type:'line',
+				            stack: '总量',
+				            data:[820, 932, 901, 934, 1290, 1330, 1320]
+				        }
+				    ]
+				};
+        myChart.setOption(option);
+		</script>
+	</div>
+	
+</body>
+	
+
+</html>
+

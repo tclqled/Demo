@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>ExpData</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css"> 
+	<script src="js/bootstrap.min.js"></script>  
+	 	
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-export.js"></script>
+	<script src="js/tableExport.js"></script>
+
+
+	<script type="text/javascript">
+		function giveFocus() 
+		{
+			document.insert.name.focus()
+		}
+		function submitForm()
+		{
+			document.insert.submit()
+		}
+		function resetForm() 
+		{
+			document.insert.reset()
+			document.insert.name.focus()
+		}
+	</script>
+
+	<script type="text/javascript">
+	        $(function() {
+	            var $table = $('#mytable');
+	            $('#toolbar').find('select').change(function() {
+	                $table.bootstrapTable('refreshOptions', {
+	                    exportDataType: $(this).val()
+	                });
+	            });
+	        });
+	</script>
+
+	<style>
+		body {
+	 		font-family: "Times New Roman";
+	 		margin:0 auto;
+	 		width: 95%
+	 	}
+	 	#mytable {
+		table-layout: fixed;
+		word-wrap: break-word;
+	}
+		tr {
+			height: 3rem;
+			width: 1000px; 
+			padding:0px;
+		}
+		#upload-table>td {
+			width:8em;
+			margin:0px;
+			padding:0px 0px;
+		}
+		th {
+			font-size: 1.5rem;
+		}
+		
+		.th1 {	width: 5rem;	}
+		.th2 {	width: 5rem;	}
+		.th3 {	width: 10rem;	}
+		.th8 {	width: 10rem;	}
+		.th9 {	width: 10rem;	}
+		.th10 {	width: 10rem;	}
+		.th11 {	width: 5rem;	}
+		
+		.sInput  {
+			margin:0;
+			font-size: 1.5rem;
+			height: 2.2rem;
+			width: 15rem;
+			border-radius: 5px;
+		}
+		
+		#mytable > input {
+			width:1em;
+			margin:0px;
+			padding:0px;
+		}
+		
+		select  {
+			margin:0;
+			font-size: 1rem;
+			height: 2rem;
+			width: 5rem;
+		} 
+		.navbar {
+		 	font-size: 2rem;
+		}
+		
+		/* bootstrap css style */
+	</style>
+</head>
+<body >
+<!-- navbar start -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html" style="font-size:1.2em;">TCL QLED</a>
+    </div>
+    <ul class="nav navbar-nav ">
+      
+      <!-- <li><a href="task.html">Task Lists</a></li> -->
+      <li><a href="#">ExperData</a></li>
+      <li><a href="experDataForm I.html">ExperData I</a></li>
+      <li><a href="experDataForm II.html">ExperData II</a></li>
+      <!-- <li><a href="fileupload/index.html">File Upload</a></li>
+      <li><a href="dataAnalysis.html">Data Analysis</a></li> -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>admin</a></li>
+      <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- navbar end -->
+
+		
+	<form  name="insert" method="post" action="/dataManager/insertData">
+				
+		<div style="margin-bottom: .2em;font-weight: bold;">
+		<span style="font-size:2rem;" >Group:</span>
+		<select  name="userGroup" class="" style="font-size:1.5rem;background: yellow; width: 10rem; border-radius:3px; margin-right: 20px; ">
+			<option>Team_A</option>
+			<option>Team_B</option>
+			<option>Team_L</option>
+			<option>Team_C</option>
+			<option>Team_D</option>
+			<option>Team_E</option>
+			<option>Team_F</option>
+		</select>
+		Device No:
+		<input class="sInput" style="margin-right: 20px; " type="text" name="sampleNo" value="A1111">
+		EncapDate:
+		<input class="sInput" style="margin-right: 20px; width: 10em;" type="date" name="encapDate" value="<%= encapDate %>"> 
+		Color:
+		<input  class="sInput" name="color" style="width: 5em;  " value="green">
+			
+		</div>	
+	
+		
+	
+		<table id="upload-table" class=" table" style="margin-bottom:0px; border: 0px solid ; ">
+	
+		<tr>
+			<th>NO.</th>
+			<th>Name</th>
+			<th>Batch</th>
+			<th>solvent</th>
+			<th>concent</th>
+			<th>spinSpeed</th>
+			<th>spinTime</th>
+			<th>annTemp</th>
+			<th>annTime</th>
+			<th>comment</th>
+		</tr>
+			<tr>
+			<th>ELE</th>
+		
+			<td><input class="sInput" type="text" name="ELE1_matName" value="11"></td>
+			<td><input class="sInput" type="text" name="ELE1_matBatch" value="12"></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+		</tr>
+		
+		<tr>
+			<th>HIL</th>
+			<td><input class="sInput" type="text" name="HIL_matName" value="21"></td>
+			<td><input class="sInput" type="text" name="HIL_matBatch" value="22"></td>
+			<td><input class="sInput" type="text" name="HIL_solvent" value="23"></td>
+			<td><input class="sInput" type="text" name="HIL_concent" value="24"></td>
+			<td><input class="sInput" type="text" name="HIL_spinSpeed" value="25"></td>
+			<td><input class="sInput" type="text" name="HIL_spinTime" value="26"></td>
+			<td><input class="sInput" type="text" name="HIL_annTemp" value="27"></td>
+			<td><input class="sInput" type="text" name="HIL_annTime" value="28"></td>
+			<td><input class="sInput" type="text" name="HIL_comment" value="29"></td>
+		</tr>
+		<tr>
+			<th>HTL</th>
+			<td><input class="sInput" type="text" name="HTL_matName" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_matBatch" value="<31"></td>
+			<td><input class="sInput" type="text" name="HTL_solvent" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_concent" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_spinSpeed" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_spinTime" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_annTemp" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_annTime" value="31"></td>
+			<td><input class="sInput" type="text" name="HTL_comment" value="31"></td>
+		</tr>
+		<tr>
+			<th>EML</th>
+			<td><input class="sInput" type="text" name="EML_matName" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_matBatch" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_solvent" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_concent" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_spinSpeed" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_spinTime" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_annTemp" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_annTime" value="40"></td>
+			<td><input class="sInput" type="text" name="EML_comment" value="40"></td>
+		</tr>
+		<tr>
+			<th>ETL</th>
+			<td><input class="sInput" type="text" name="ETL_matName" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_matBatch" value="<50"></td>
+			<td><input class="sInput" type="text" name="ETL_solvent" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_concent" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_spinSpeed" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_spinTime" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_annTemp" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_annTime" value="50"></td>
+			<td><input class="sInput" type="text" name="ETL_comment" value="50"></td>
+		</tr>
+		<tr style="display:none;">
+			<th>EIL</th>
+			<td><input class="sInput" type="text" name="EIL_matName" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_matBatch" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_solvent" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_concent" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_spinSpeed" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_spinTime" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_annTemp" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_annTime" value="60"></td>
+			<td><input class="sInput" type="text" name="EIL_comment" value="60"></td>
+		</tr>
+	
+		<tr>
+			<th>ELE</th>
+			<td><input class="sInput" type="text" name="ELE2_matName" value="70"></td>
+			<td><input class="sInput" type="text" name="ELE2_matBatch" value="70"></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+		</tr>	
+		
+		<tr>
+			<th>Encap</th>
+			<td><input class="sInput" style="" type="text" name="encap" value="80"></td>
+			<td><input class="sInput" type="text" style="background-color: #eeeeee;" name="" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+		</tr>
+		
+		<tr>
+			<th>Comment</th>
+			<td><input class="sInput" style="" type="text" name="tableComment" value="90"></td>
+			<td style="display:hidden" ><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+			<td><input class="sInput" type="text" name="" style="background-color: #eeeeee;" disabled></td>
+		</tr>
+	</table>
+	
+	</form>				
+			<button class="btn btn-success" type="button" value="UpLoad" onclick="submitForm()" style="margin: 20px auto;font-size: 1em;">UpLoad</button>
+			<button class="btn btn-danger"type="button" value="Reset" onclick="resetForm()" style="margin: 20px auto;font-size: 1em;"> Reset</button>
+		
+	
+<hr style="height:10px;border:none;border-top:5px groove gray;" />
+	
+<!-- lists start -->
+		<div id="toolbar">
+		<select class="form-control">
+			<option value="">Export Basic</option>
+			<option value="all">Export All</option>
+			<option value="selected">Export Selected</option>
+		</select>
+
+		
+	</div>
+	<table data-toggle="table" id="mytable" data-pagination="true" data-show-columns="true"
+		data-search="true"  data-show-export="true" data-toolbar="#toolbar">
+		<thead>	
+			<tr>
+				<th  data-field="state" data-checkbox="true" ></th>
+				<th class="th1" data-field="name1" data-sortable="true">No</th>
+				<th  class="th2" data-field="name7" data-sortable="true" >Date</th>
+				<th  class="th3" data-field="name2" >Electrode</th>
+				<th  class="th4" data-field="name3" >HIL</th>
+				<th  class="th5" data-field="name4" >HTL</th>
+				<th  class="th6" data-field="name5" >EML</th>
+				<th  class="th7" data-field="name6" >ETL</th>
+				
+				<th  class="th8" data-field="name8" >Electrode</th>
+				<th  class="th9" data-field="name11" >Encap</th>
+				<th  class="th10" data-field="name9" >Comment</th>
+				<th class="th11" data-field="name10" >Option</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>	
+				
+				<td ></td>
+				<td >A1111</td>
+				<td>2017-02-18</td>
+				<td >ITO</td>
+				<td>PEDOT</td>
+				<td>TFB</td>	
+				<td>QDs</td>
+				<td>ZnO</td>
+				<td >Al</td>
+				<td>Auto</td>
+				<td>...</td>
+				<td><a href="experDataForm2.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-edit"></span></a>
+				<a href="deleteExperDataForm.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-trash"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+<!-- lists end -->		
+</body>
+</html>

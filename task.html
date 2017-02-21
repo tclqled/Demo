@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Task Lists</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- bootstrap-table -->
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-export.js"></script>
+	<script src="js/tableExport.js"></script>
+
+	<style type="text/css">
+	body {
+		font-family: "Times New Roman";
+		margin: 0 auto;
+		width: 95%
+	}
+	.navbar {
+		 	font-size: 2rem;
+		}
+
+	tr {
+		height: 2em;
+	}
+
+	.new-task-btn {
+		position: absolute;
+	}
+	</style>
+
+	<script type="text/javascript">
+		function giveFocus() {
+			document.insert.name.focus()
+		}
+		function submitForm() {
+			document.insert.submit()
+		}
+		function resetForm() {
+			document.insert.reset()
+			document.insert.name.focus()
+		}
+	</script>
+
+</head>
+<body bgcolor="#f8f8f8">
+
+	<!-- navbar start -->
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html" style="font-size: 2.5rem;">TCL QLED</a>
+			</div>
+			<ul class="nav navbar-nav ">
+
+				<li><a href="#">Task Lists</a></li>
+				<!-- <li><a href="experDataForm.html">ExperData</a></li>
+				<li><a href="fileupload/index.html">File Upload</a></li>
+				<li><a href="dataAnalysis.html">Data Analysis</a></li> -->
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+						</a></li>
+				<li><a href="index.jsp"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- navbar end -->
+
+	<!-- Modal start -->
+	<button type="button" class="btn btn-success btn-md new-task-btn"
+		data-toggle="modal" data-target="#myModal">New task </button>
+
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+		aria-labelledby="gridModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="gridModalLabel">New task</h4>
+					<h5 class="modal-title" id="gridModalLabel">&ltbr/&gt</h5>
+				</div>
+				<!-- body body body -->
+				<div class="modal-body">
+					<div class="container-fluid">
+
+						<form name="insert" method="post" action="insert.jsp">
+							<!-- <table> -->
+							<div class="row">
+								<div class="col-md-4">
+									<label>Date</label> <input class="form form-control"
+										type="date" name="tdate">
+								</div>
+								<div class="col-md-4">
+									<label>Team</label> <select class="form form-control"
+										name="team">
+										<option>Team_A</option>
+										<option>Team_B</option>
+										<option>Team_L</option>
+										<option>Team_C</option>
+										<option>Team_D</option>
+										<option>Team_E</option>
+										<option>Team_F</option>
+									</select>
+								</div>
+								<div class="col-md-4">
+									<label>Color</label> <select class="form form-control"
+										type="textColor" name="detail2">
+										<option>black</option>
+										<option>red</option>
+										<option>green</option>
+										<option>blue</option>
+									</select>
+								</div>
+							</div>
+							<label>Detail</label>
+							<div class="row">
+								<div class="col-md-2">
+									<textarea rows="10%" class="form form-control" name="taskEle1"
+										placeholder="Electrode"></textarea>
+								</div>
+								<div class="col-md-2">
+									<textarea rows="10%" class="form form-control" name="taskHil"
+										placeholder="HIL"></textarea>
+								</div>
+								<div class="col-md-4">
+									<textarea rows="10%" class="form form-control" name="taskQd"
+										placeholder="HTL/QD/ETL <br/>"></textarea>
+								</div>
+								<div class="col-md-2">
+									<textarea rows="10%" class="form form-control" name="taskEle2"
+										placeholder="Ele/Encap"></textarea>
+								</div>
+								<div class="col-md-2">
+									<textarea rows="10%" class="form form-control"
+										name="taskComment" placeholder="Comment"></textarea>
+								</div>
+
+							</div>
+							
+							<br />
+							<div class="row pull-right">
+								<input class="btn  btn-success" type="button" value="Confirm"
+									onclick="submitForm()"> <input class="btn   btn-danger"
+									type="button" value="Reset" onclick="resetForm()">
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- body end body end body end -->
+				<div class="modal-footer">
+					<span></span>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- Modal end -->
+
+	<!-- task lists -->
+
+	<table data-toggle="table" data-pagination="true" data-search="true"
+		data-show-export="true" data-show-columns="true"  
+		data-click-to-select="true" data-toolbar="#toolbar">
+		<thead>
+			<tr >
+
+				<th class="col-md-0.5" data-halign="center" data-field="Date" data-sortable="true">Date</th>
+				<th class="col-md-0.5" data-halign="center" data-field="Team" data-sortable="true">Team</th>
+				<!-- <th data-field="Detail">Detail</th> -->
+				<th class="col-md-2" data-halign="center" data-field="taskEle1">ITO</th>
+				<th class="col-md-2" data-halign="center" data-field="taskHil">HIL</th>
+				<th class="col-md-4" data-halign="center" data-field="taskQd" >HTL/QD/ETL</th>
+				<th class="col-md-2" data-halign="center" data-field="taskEle2">Ele/Encap</th>
+				<th class="col-md-2" data-halign="center" data-field="taskComment">Comment</th>
+				<th class="col-md-0.5" data-halign="center" data-field="Option">Option</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				
+				<td>3</td>
+				<td>4</td>
+				<td><span style ="color: green">5</span></td>
+				<td>6</td>
+				<td>7</td>
+				<td><a href="delete.jsp?tdate=<%=user_id%>&team=<%=user_name%>"><span
+						class="glyphicon glyphicon-trash"></span></a> 
+					<a href="modifyForm.jsp?tdate=<%=user_id%>&team=<%=user_name%>&taskEle1=<%=user_taskEle1%>&taskHil=<%=user_taskHil%>&taskQd=<%=user_taskQd%>&taskEle2=<%=user_taskEle2%>&taskComment=<%=user_taskComment%>"><span
+						class="glyphicon glyphicon-edit"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	
+</body>
+</html>
+

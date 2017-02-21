@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Data Analysis</title>
+	<!-- bootstrap -->
+	 <link rel="stylesheet" href="css/bootstrap.min.css"> 
+	 <script src="js/jquery.min.js"></script>
+	 <script src="js/bootstrap.min.js"></script>
+	<!-- bootstrap-table -->
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-export.js"></script>
+	<script src="js/tableExport.js"></script>
+
+
+	<style>
+	body {
+		font-family: "Times New Roman";
+		margin: 0 auto;
+		width: 95%;
+	}
+	#mytable {
+		 table-layout: auto; 
+		word-wrap: break-word;
+	}
+	.navbar {
+		 	font-size: 2rem;
+		 	
+		}
+	.th-hil {width: 15rem;}
+	.th-htl {width: 15rem;}
+	.th-eml {width: 15rem;}
+	.th-etl {width: 15rem;}
+
+	</style>
+
+	<script type="text/javascript">
+		function giveFocus() {
+			document.insert.name.focus()
+		}
+		function submitForm() {
+			document.insert.submit()
+		}
+		function resetForm() {
+			document.insert.reset()
+			document.insert.name.focus()
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse ">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html" style="font-size: 2.5rem;">TCL QLED</a>
+			</div>
+			<ul class="nav navbar-nav ">
+
+				<!-- <li><a href="task.html">Task Lists</a></li> -->
+				<!-- <li><a href="experDataForm.html">ExperData</a></li>
+				<li><a href="fileupload/index.html">File Upload</a></li> -->
+				<li><a href="dataAnalysis.html">DataAnalysis</a></li>
+				<li><a href="dataAnalysis I.html">DataAnalysis I</a></li>
+				<li><a href="#">DataAnalysis II</a></li>
+				<li><a href="dataAnalysis III.html">DataAnalysis III</a></li>
+				<li><a href="dataV.html" >DataVisualize</a></li> 
+				<!-- <li><a href="userM.html">User Manager</a></li>  -->
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+						admin</a></li>
+				<li><a href="index.jsp"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- navbar end -->
+	  
+	<div id="toolbar">
+		<select class="form-control">
+			<option value="">Export Basic</option>
+			<option value="all">Export All</option>
+			<option value="selected">Export Selected</option>
+		</select>
+
+		
+	</div>
+	<table data-toggle="table" id="mytable" data-pagination="true" data-show-columns="true"
+		data-search="true"  data-show-export="true" data-toolbar="#toolbar">
+		<thead>	
+			<tr>
+				<th  data-field="state" data-checkbox="true" ></th>
+				<th class="th1" data-field="name1" data-sortable="true">No</th>
+				<th  class="th2" data-field="name7" data-sortable="true" >pixel</th>
+				<th  class="th3" data-field="name2" >I (mA)</th>
+				<th  class="th4" data-field="name3" >Init L(cd/m<sup>2</sup>)</th>
+				<th  class="th5" data-field="name4" >LT95 (h)</th>
+				<th  class="th6" data-field="name5" >LT90 (h)</th>
+				<th  class="th7" data-field="name6" >LT80 (h)</th>
+				<th  class="th8" data-field="name8" >LT75 (h)</th>
+				<th  class="th9" data-field="name11" >LT50 (h)</th>
+				<th  class="th10" data-field="name9" >Comment</th>
+				<th class="th11" data-field="name10" >Option</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr>	
+				
+				<td ></td>
+				<td >A1111a</td>
+				<td>2</td>
+				<td >2</td>
+				<td>10000</td>
+				<td>1</td>	
+				<td>2</td>
+				<td>3</td>
+				<td >8</td>
+				<td>100</td>
+				<td>...</td>
+				<td><a href="experDataForm2.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-edit"></span></a>
+				<a href="deleteExperDataForm.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-trash"></span></a></td>
+			</tr>
+
+			<tr>	
+				
+				<td ></td>
+				<td >A1111a</td>
+				<td>2</td>
+				<td >2</td>
+				<td>10000</td>
+				<td>1</td>	
+				<td>2</td>
+				<td>3</td>
+				<td >8</td>
+				<td>100</td>
+				<td>...</td>
+				<td><a href="experDataForm2.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-edit"></span></a>
+				<a href="deleteExperDataForm.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-trash"></span></a></td>
+			</tr>
+
+			<tr>	
+				
+				<td ></td>
+				<td >A1111a</td>
+				<td>2</td>
+				<td >2</td>
+				<td>10000</td>
+				<td>1</td>	
+				<td>2</td>
+				<td>3</td>
+				<td >8</td>
+				<td>100</td>
+				<td>...</td>
+				<td><a href="experDataForm2.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-edit"></span></a>
+				<a href="deleteExperDataForm.jsp?deviceNo=<%= deviceNo %>"><span class="glyphicon glyphicon-trash"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+<!-- lists end -->	
+</body>
+
+</html>
+

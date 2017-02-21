@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>ExpData</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css"> 
+	<script src="js/bootstrap.min.js"></script>  
+	 	
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-export.js"></script>
+	<script src="js/tableExport.js"></script>
+
+
+	<script type="text/javascript">
+		function giveFocus() 
+		{
+			document.insert.name.focus()
+		}
+		function submitForm()
+		{
+			document.insert.submit()
+		}
+		function resetForm() 
+		{
+			document.insert.reset()
+			document.insert.name.focus()
+		}
+	</script>
+
+	<script type="text/javascript">
+	        $(function() {
+	            var $table = $('#mytable');
+	            $('#toolbar').find('select').change(function() {
+	                $table.bootstrapTable('refreshOptions', {
+	                    exportDataType: $(this).val()
+	                });
+	            });
+	        });
+	</script>
+
+	<style>
+		body {
+	 		font-family: "Times New Roman";
+	 		margin:0 auto;
+	 		width: 95%
+	 	}
+	 	#mytable {
+		table-layout: fixed;
+		word-wrap: break-word;
+	}
+		tr {
+			height: 3rem;
+			width: 1000px; 
+			padding:0px;
+		}
+		#upload-table>td {
+			width:8em;
+			margin:0px;
+			padding:0px 0px;
+		}
+		th {
+			font-size: 1.5rem;
+		}
+		
+		.th1 {	width: 5rem;	}
+		.th2 {	width: 5rem;	}
+		.th3 {	width: 10rem;	}
+		.th8 {	width: 10rem;	}
+		.th9 {	width: 10rem;	}
+		.th10 {	width: 10rem;	}
+		.th11 {	width: 5rem;	}
+		
+		.sInput  {
+			margin:0;
+			font-size: 1.5rem;
+			height: 2.2rem;
+			width: 15rem;
+			border-radius: 5px;
+		}
+		
+		#mytable > input {
+			width:1em;
+			margin:0px;
+			padding:0px;
+		}
+		
+		select  {
+			margin:0;
+			font-size: 1rem;
+			height: 2rem;
+			width: 5rem;
+		} 
+		.navbar {
+		 	font-size: 2rem;
+		}
+		
+	</style>
+</head>
+<body >
+	<!-- navbar start -->
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="index.html" style="font-size:1.2em;">TCL QLED</a>
+	    </div>
+	    <ul class="nav navbar-nav ">
+	      
+	      <!-- <li><a href="task.html">Task Lists</a></li> -->
+	      <li><a href="experDataForm.html">ExperData</a></li>
+	      <li><a href="#">ExperData I</a></li>
+	      <li><a href="experDataForm II.html">ExperData II</a></li>
+	      <!-- <li><a href="fileupload/index.html">File Upload</a></li>
+	      <li><a href="dataAnalysis.html">Data Analysis</a></li> -->
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#"><span class="glyphicon glyphicon-user"></span>admin</a></li>
+	      <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<!-- navbar end -->
+	<form style="padding:10px;border: 1px solid gray; border-radius: 5px">
+		<div class="row">
+			<div class="col-md-1">
+				<label>合成编号</label> <input class="form form-control" value="B160824">
+			</div>
+			<div class="col-md-1">
+				<label>温度/温度</label> <input class="form form-control" value="B160824">
+			</div>	
+			<div class="col-md-1">
+				<label>S-ODE(mmol)</label> <input class="form form-control" value="B160824">
+			</div>
+			<div class="col-md-1">
+				<label>核生长时间</label> <input class="form form-control" value="B160824">
+			</div>	
+			<div class="col-md-2">
+				<label>CdOA2注入量&速率</label> <input class="form form-control" value="0.6mmol, 1mmol/h">
+			</div>	
+			<div class="col-md-2">
+				<label>S-TOP注入量&速率</label> <input class="form form-control" value="6mmol, 6mmol/h">
+			</div>	
+			<div class="col-md-1">
+				<label>稳定性</label> <input class="form form-control" value="B160824">
+			</div>	
+			<div class="col-md-1">
+				<label>QY</label> <input class="form form-control" value="B160824">
+			</div>	
+			<div class="col-md-1">
+				<label>x</label> <input class="form form-control" value="B160824">
+			</div>	
+			<div class="col-md-1">
+				<label>x</label> <input class="form form-control" value="B160824">
+			</div>			
+		</div>
+			<button class="btn btn-success" type="button" value="UpLoad" onclick="submitForm()" style="margin: 20px auto;font-size: 0.75em;">UpLoad</button>
+			<button class="btn btn-danger"type="button" value="Reset" onclick="resetForm()" style="margin: 20px auto;font-size: 0.75em;"> Reset</button>
+	</form>
+
+	<form style="padding:10px;border: 1px solid gray; border-radius: 5px">
+		<div class="row">
+			<div class="col-md-1">
+				<label>合成编号</label> <input class="form form-control" value="B160824">
+			</div>
+			<div class="col-md-1">
+				<label>测试编号</label> <input class="form form-control" value="B-1">
+				<input class="form form-control" value="B-2">
+				<input class="form form-control" value="B-3">
+				<input class="form form-control" value="B-4">
+				<input class="form form-control" value="B-5">
+				
+			</div>	
+			<div class="col-md-4">
+				<label>合成阶段</label>  <input class="form form-control" value="成核10min">
+									    <input class="form form-control" value="成核10min">
+									    <input class="form form-control" value="成核10min">
+									    <input class="form form-control" value="成核10min">
+									    <input class="form form-control" value="成核10min">
+			</div>
+			<div class="col-md-1">
+				<label>发光峰(nm)</label> <input class="form form-control" value="461">
+											<input class="form form-control" value="461">
+											<input class="form form-control" value="461">
+											<input class="form form-control" value="461">
+											<input class="form form-control" value="461">
+			</div>	
+			<div class="col-md-1">
+				<label>半峰宽(nm)</label> <input class="form form-control" value="20">
+											<input class="form form-control" value="20">
+											<input class="form form-control" value="20">
+											<input class="form form-control" value="20">
+											<input class="form form-control" value="20">
+			</div>	
+			<div class="col-md-1">
+				<label>吸光度</label> <input class="form form-control" value="0.63">
+										<input class="form form-control" value="0.63">
+										<input class="form form-control" value="0.63">
+										<input class="form form-control" value="0.63">
+										<input class="form form-control" value="0.63">
+			</div>	
+			<div class="col-md-1">
+				<label>P/A(a.u)</label> <input class="form form-control" value="23049">
+										<input class="form form-control" value="23049">
+										<input class="form form-control" value="23049">
+										<input class="form form-control" value="23049">
+										<input class="form form-control" value="23049">
+			</div>	
+			<div class="col-md-1">
+				<label>QY(%)</label> <input class="form form-control" value="90">
+										<input class="form form-control" value="90">
+										<input class="form form-control" value="90">
+										<input class="form form-control" value="90">
+										<input class="form form-control" value="90">
+			</div>	
+			
+		</div>
+			<button class="btn btn-success" type="button" value="UpLoad" onclick="submitForm()" style="margin: 20px auto;font-size: 0.75em;">UpLoad</button>
+			<button class="btn btn-danger"type="button" value="Reset" onclick="resetForm()" style="margin: 20px auto;font-size: 0.75em;"> Reset</button>
+	</form>
+
+	<hr style="height:10px;border:none;border-top:5px groove gray;" />
+		
+</body>
+</html>

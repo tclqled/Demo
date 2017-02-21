@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Data Analysis</title>
+	<!-- bootstrap -->
+	 <link rel="stylesheet" href="css/bootstrap.min.css"> 
+	 <script src="js/jquery.min.js"></script>
+	 <script src="js/bootstrap.min.js"></script>
+	<!-- bootstrap-table -->
+	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-export.js"></script>
+	<script src="js/tableExport.js"></script>
+
+
+	<style>
+	body {
+		font-family: "Times New Roman";
+		margin: 0 auto;
+		width: 95%;
+	}
+	#mytable {
+		 table-layout: auto; 
+		word-wrap: break-word;
+	}
+	.navbar {
+		 	font-size: 2rem;
+		 	
+		}
+	.th-hil {width: 15rem;}
+	.th-htl {width: 15rem;}
+	.th-eml {width: 15rem;}
+	.th-etl {width: 15rem;}
+
+	</style>
+
+	<script type="text/javascript">
+		function giveFocus() {
+			document.insert.name.focus()
+		}
+		function submitForm() {
+			document.insert.submit()
+		}
+		function resetForm() {
+			document.insert.reset()
+			document.insert.name.focus()
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse ">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html" style="font-size: 2.5rem;">TCL QLED</a>
+			</div>
+			<ul class="nav navbar-nav ">
+
+				<!-- <li><a href="task.html">Task Lists</a></li> -->
+				<!-- <li><a href="experDataForm.html">ExperData</a></li>
+				<li><a href="fileupload/index.html">File Upload</a></li> -->
+				<li><a href="#">DataAnalysis</a></li>
+				<li><a href="dataAnalysis I.html">DataAnalysis I</a></li>
+				<li><a href="dataAnalysis II.html">DataAnalysis II</a></li>
+				<li><a href="dataAnalysis III.html">DataAnalysis III</a></li>
+				<li><a href="dataV.html" >DataVisualize</a></li> 
+				<!-- <li><a href="userM.html">User Manager</a></li>  -->
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+						admin</a></li>
+				<li><a href="index.jsp"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- navbar end -->
+	  
+	<div id="toolbar">
+		<select class="form-control">
+			<option value="">Export Basic</option>
+			<option value="all">Export All</option>
+			<option value="selected">Export Selected</option>
+		</select>
+
+	</div>
+	<table data-toggle="table" id="mytable" data-pagination="true" 	data-search="true" 
+			  data-page-size="20" data-show-export="true" data-show-columns="true" data-click-to-select="true" data-toolbar="#toolbar">
+		<thead>
+			<tr>
+				<th data-field="state" data-checkbox="true"></th>
+
+				<th data-field="deviceNo" data-sortable="true">No</th>
+				<th data-field="Tn-n" data-sortable="true">Tn-n</th>
+				<th data-field="description" data-sortable="true">Date</th>
+				<th data-field="color" data-sortable="true">Color</th>
+				
+				<th data-field="Ele1" class="success th-hil">ELE</th>
+				<th data-field="HIL" class="success th-hil">HIL</th>
+				<th data-field="HTL" class="success th-htl">HTL</th>
+				<th data-field="EML"  class="success th-eml">EML</th>
+				<th data-field="ETL" class="success th-etl">ETL</th>
+	           <th data-field="Ele2" class="success th-hil">ELE</th>
+	            	
+				<!-- <th data-field="EIL" data-sortable="true" class="success" style="display: hidden;">EIL</th> -->
+				
+				<th data-field="name1"  class="info">ELPK<br/>FWHM</th>
+				<!-- <th data-field="name2" data-sortable="true" class="info">FW<br/>HM</th> -->
+				<th data-field="name3"  class="info">CIEx<br/>CIEy</th>
+				<!-- <th data-field="name4" data-sortable="true" class="info">CIEy</th> -->
+				<th data-field="name5" >TOn</th>
+				<th data-field="name6" >EQE-M<br/>EQE-A</th>
+				<!-- <th data-field="name7" data-sortable="true">EQE <br/>MaxAvg</th> -->
+				<th data-field="name8" >η<sub>A</sub>-M <br/>η<sub>A</sub>-A</th>
+				<!-- <th data-field="name9" data-sortable="true">η<sub>A</sub> <br/>MaxAvg</th> -->
+				<th data-field="name11" >E1K-M <br/>E1K-A</th>
+				<!-- <th data-field="name12" >EQE(@1000nit) <br/>MaxAvg</th> -->
+				<th data-field="name13" >η<sub>A</sub>1K-M<br/>η<sub>A</sub>1K-A</th>
+				<!--<th  data-field="name14" >η<sub>A</sub>(@1000nit)<br/>Max Avg</th> -->
+				<th data-field="name16" >E1H-M <br/>E1H-A</th>
+				<!-- <th data-field="name17" >EQE(@100nit) <br/>MaxAvg</th> -->
+				<th data-field="name18" >η<sub>A</sub>1H-M<br/>η<sub>A</sub>1H-A</th>
+		        <!-- <th data-field="name19" >η<sub>A</sub>(@100nit)<br/>Max Avg</th> -->
+			</tr>
+		</thead>
+		<tbody>
+						<tr>	
+							<td></td>
+							<td >A1111</td>
+							<td >2-1</td>
+							<td>tEncapDate</td>
+							<td>color</td>
+							
+							<td>ele1</td>
+							<td>hil</td>
+							<td>hil</td>
+							<td>eml</td>
+							<td>etl</td>
+							<td>ele2</td>
+							<td>elpeak<br/>fwhm</td>
+							<td>cieX<br/>cieY </td>
+							<td>turnOnV</td>
+							<td>maxEqe<br/>maxEqeAvg</td>
+							<td>maxEtaA<br/>maxEtaAAvg</td>
+							<td>maxEqe1000<br/>maxEqeAvg1000</td>
+							<td>maxEtaA1000<br/>maxEtaAAvg1000</td>
+							<td>maxEqe100<br/>maxEqeAvg100</td>
+							<td>maxEtaA100<br/>maxEtaAAvg100</td>
+							
+						</tr>
+		</tbody> 
+	</table>
+	
+</body>
+
+</html>
+
